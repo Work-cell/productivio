@@ -1,0 +1,2 @@
+- [Student product focus](student-product-focus.md) — Productivio is for individual students, not organizations.
+- [Browser storage tests](browser-storage-tests.md) — In jsdom, mock Storage prototype methods to simulate localStorage failures.

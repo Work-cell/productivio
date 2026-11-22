@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Productivio"
+description = "A student productivity workspace for planning tasks, organizing projects, scheduling study time, and staying focused with a polished dashboard and local persistence."
+version = "1.0.0"
+id = "artifacts/productivio"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18124
+
+[services.development]
+run = "pnpm --filter @workspace/productivio run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/productivio", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/productivio/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18124"
+BASE_PATH = "/"
